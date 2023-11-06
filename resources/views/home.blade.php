@@ -56,7 +56,7 @@
     var maxpage = 31
     function loadpages(){
         var applulad = ""
-        $("#flipbook").append("<div class='bpage'><div class='bpcontent'><img src='http://localhost:8000/assets/pages/"+pnum+".jpg'></div></div>")
+        $("#flipbook").append("<div class='bpage'><div class='bpcontent'><img src='http://mindmappinggilang.my.id/assets/pages/"+pnum+".jpg'></div></div>")
         pnum++
         if(pnum <= maxpage)
             loadpages()
