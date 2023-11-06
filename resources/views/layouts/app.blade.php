@@ -7,13 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Mindmapping Login') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    {{-- <link rel="stylesheet" href="{{ url('style.css') }}"> --}}
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -79,6 +77,5 @@
         </main>
     </div>
 
-    {{-- <script src="{{ url('app.js') }}"></script> --}}
 </body>
 </html>
