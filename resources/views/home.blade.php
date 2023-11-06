@@ -22,7 +22,29 @@
 			}
 			img{
 				width: 100%;
+                height: 800px !important;
 			}
+
+            .logout {
+                padding-top: 10px;
+                padding-left: 10px;
+                padding-bottom: 10px;
+            }
+
+            @media only screen and (max-width: 600px) {
+
+                .logout {
+                    padding-top: 30px;
+                    padding-left: 10px;
+                    text-align: center;
+                    padding-bottom: 30px;
+                }
+                img{
+                    width: 100%;
+                    height: 350px !important;
+                }
+            }
+
 			button{
 				background-color: blue;
 				color: white;
@@ -35,7 +57,7 @@
 </head>
 <body>
 
-<div style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px;">
+<div class="logout">
     <a style="color: white; font-weight: bold; text-decoration: none;" href="{{ route('logout') }}"
         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         Logout Sekarang
@@ -58,11 +80,11 @@
     var maxpage = 31
     function loadpages(){
         var applulad = ""
-        $("#flipbook").append("<div class='bpage'><div class='bpcontent'><img src='http://mindmappinggilang.my.id/assets/pages/"+pnum+".jpg'></div></div>")
+        $("#flipbook").append("<div class='bpage'><div class='bpcontent'><img src='http://localhost:8000/assets/pages/"+pnum+".jpg'></div></div>")
         pnum++
         if(pnum <= maxpage)
             loadpages()
-        else{
+        else{http://localhost:8000/assets/pages/3.jpg
             yepnope({
                 test : Modernizr.csstransforms,
                 yep: ['{{ url('assets/lib/turn.js') }}'],
