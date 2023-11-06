@@ -39,88 +39,98 @@
     </div>
 </div>
 
+<a class="dropdown-item" href="{{ route('logout') }}"
+    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+    Logout Sekarang
+</a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+    @csrf
+</form>
+
 <script type="text/javascript">
-			var bookname = "Gilang Adiya Elangga"
-			var pnum = 2
-			var currentfs = 14
-			var maxpage = 31
-			function loadpages(){
-				var applulad = ""
-				$("#flipbook").append("<div class='bpage'><div class='bpcontent'><img src='http://mindmappinggilang.my.id/assets/pages/"+pnum+".jpg'></div></div>")
-				pnum++
-				if(pnum <= maxpage)
-					loadpages()
-				else{
-					yepnope({
-						test : Modernizr.csstransforms,
-						yep: ['{{ url('assets/lib/turn.js') }}'],
-						nope: ['{{ url('assets/lib/turn.html4.min.js') }}'],
-						both: ['{{ url('assets/css/basic.css') }}'],
-						complete: loadApp
-					});
-				}
-			}
+    var bookname = "Gilang Adiya Elangga"
+    var pnum = 2
+    var currentfs = 14
+    var maxpage = 31
+    function loadpages(){
+        var applulad = ""
+        $("#flipbook").append("<div class='bpage'><div class='bpcontent'><img src='http://localhost:8000/assets/pages/"+pnum+".jpg'></div></div>")
+        pnum++
+        if(pnum <= maxpage)
+            loadpages()
+        else{
+            yepnope({
+                test : Modernizr.csstransforms,
+                yep: ['{{ url('assets/lib/turn.js') }}'],
+                nope: ['{{ url('assets/lib/turn.html4.min.js') }}'],
+                both: ['{{ url('assets/css/basic.css') }}'],
+                complete: loadApp
+            });
+        }
+    }
 
-			loadpages()
+    loadpages()
 
-			function loadApp(){
-				$("#flipbook").turn({
-					width: innerWidth,
-					height: innerHeight,
-					gradients: true,
-					elevation: 0,
-					autoCenter: true
-				});
-				$("#loader").fadeOut()
-			}
+    function loadApp(){
+        $("#flipbook").turn({
+            width: innerWidth,
+            height: innerHeight,
+            gradients: true,
+            elevation: 0,
+            autoCenter: true
+        });
+        $("#loader").fadeOut()
+    }
 
-			function textsizePlus(){
-				if(currentfs < 40){
-					currentfs = currentfs + 1
-					$("body").css({'font-size':currentfs + "px"})
-				}
-			}
-			function textsizeMinus(){
-				if(currentfs > 8){
-					currentfs = (currentfs - 1)
-					$("body").css({'font-size':currentfs+"px"})
-				}
-			}
+    function textsizePlus(){
+        if(currentfs < 40){
+            currentfs = currentfs + 1
+            $("body").css({'font-size':currentfs + "px"})
+        }
+    }
+    function textsizeMinus(){
+        if(currentfs > 8){
+            currentfs = (currentfs - 1)
+            $("body").css({'font-size':currentfs+"px"})
+        }
+    }
 
-			function toLastPage(){
-				$("#flipbook").turn("page", $("#flipbook").turn("pages"))
-				showAd()
-			}
-			function toFirstPage(){
-				$("#flipbook").turn("page", 1)
-				showAd()
-			}
-			function openPage(n){
-				showAd()
-				if(n <= maxpage && n > 0)
-					$("#flipbook").turn("page", n)
-			}
-			function openPrevPage(){
-				$("#flipbook").turn("previous")
-				showAd()
-			}
-			function openNextPage(){
-				$("#flipbook").turn("next")
-				showAd()
-			}
+    function toLastPage(){
+        $("#flipbook").turn("page", $("#flipbook").turn("pages"))
+        showAd()
+    }
+    function toFirstPage(){
+        $("#flipbook").turn("page", 1)
+        showAd()
+    }
+    function openPage(n){
+        showAd()
+        if(n <= maxpage && n > 0)
+            $("#flipbook").turn("page", n)
+    }
+    function openPrevPage(){
+        $("#flipbook").turn("previous")
+        showAd()
+    }
+    function openNextPage(){
+        $("#flipbook").turn("next")
+        showAd()
+    }
 
-			var jtp
-			function jumpToPage(){
-				clearTimeout(jtp)
-				jtp = setTimeout(function(){
-					$("#flipbook").turn("page", parseInt($("#inputpage").val()))
-					showAd()
-				}, 500)
-			}
+    var jtp
+    function jumpToPage(){
+        clearTimeout(jtp)
+        jtp = setTimeout(function(){
+            $("#flipbook").turn("page", parseInt($("#inputpage").val()))
+            showAd()
+        }, 500)
+    }
 
-			$("title").html("Mindmapping - " + bookname)
+    $("title").html("Mindmapping - " + bookname)
 
-		</script>
+</script>
 
 </body>
 </html>
