@@ -34,20 +34,22 @@
 		</style>
 </head>
 <body>
-<div style="text-align: center;">
-    <div id="flipbook" style="margin: 0 auto; display: inline-block;">
-    </div>
-</div>
 
-<a class="dropdown-item" href="{{ route('logout') }}"
-    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-    Logout Sekarang
-</a>
+<div style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px;">
+    <a style="color: white; font-weight: bold; text-decoration: none;" href="{{ route('logout') }}"
+        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        Logout Sekarang
+    </a>
+</div>
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
     @csrf
 </form>
+
+<div style="text-align: center;">
+    <div id="flipbook" style="margin: 0 auto; display: inline-block;">
+    </div>
+</div>
 
 <script type="text/javascript">
     var bookname = "Gilang Adiya Elangga"
